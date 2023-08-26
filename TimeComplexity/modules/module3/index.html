@@ -1,0 +1,767 @@
+<!doctype html>
+<head>
+    <title>Module 3</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+	<link rel="apple-touch-icon" sizes="180x180" href="../../favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../../favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../../favicon/favicon-16x16.png">
+	<link rel="manifest" href="../../favicon/site.webmanifest">
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<style>
+    .container {
+        background-color: #f3f0e9;
+        border: 1px solid #d3d3d3;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px;
+    }
+    .sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        padding: 5px 0 0; /* Height of navbar */
+        box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+        width: 200px;
+        z-index: 600;
+    }
+
+    @media (max-width: 991.98px) {
+    .sidebar {
+        width: 100%;
+    }
+    }
+    .sidebar .active {
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+    }
+
+    .sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: 0.5rem;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    
+    }
+	table, th, td {
+	border: 1px solid black;
+	}
+	th, td {
+	padding: 5px;
+	}
+	code pre {
+		color: rgb(232,62,140);
+		font-size: 18px;
+		display: flex;
+ 		justify-content: center;
+  		white-space: pre;
+	}
+	.container {
+  		max-width: 800px; /* Change this value to make the container smaller */
+	}
+</style>
+<br><br>
+<header>
+	<!--Navbar-->
+	<nav
+	id="sidebarMenu"
+	class="collapse d-lg-block sidebar collapse bg-white" 
+	>
+ <div class="position-sticky" >
+    
+   <div class="list-group list-group-flush mx-3 mt-4">
+    <h4>Modules:</h4>
+	 <a
+		href="../module1/"
+		class="list-group-item list-group-item-action py-2 ripple"
+		aria-current="true" 
+		>
+	   <i class="fas fa-tachometer-alt fa-fw me-3"></i
+		 ><span>Module 1: Functions and Growth Rates</span>
+	 </a>
+	 <a
+		href="../module2/"
+		class="list-group-item list-group-item-action py-2 ripple"
+		>
+	   <i class="fas fa-chart-area fa-fw me-3"></i
+		 ><span>Module 2: Big O Notation Introduction</span>
+	 </a>
+	 <a
+		href="../module3/"
+		class="list-group-item list-group-item-action py-2 ripple"
+		><i class="fas fa-lock fa-fw me-3"></i><span>Module 3: Simple Loops and Nested Loops</span></a
+	   >
+	 <a
+		href="../module4/"
+		class="list-group-item list-group-item-action py-2 ripple"
+		><i class="fas fa-chart-line fa-fw me-3"></i
+	   ><span>Module 4: Loops Special Cases</span></a
+	   >
+	 <a
+		href="../module5/"
+		class="list-group-item list-group-item-action py-2 ripple"
+		>
+	   <i class="fas fa-chart-pie fa-fw me-3"></i><span>Module 5: Recursion</span>
+	 </a>
+	 <a
+		href="../module6/"
+		class="list-group-item list-group-item-action py-2 ripple"
+		><i class="fas fa-chart-bar fa-fw me-3"></i><span>Module 6: Recursion Special Cases</span></a
+	   >
+	 <a
+		href="../module7/"
+		class="list-group-item list-group-item-action py-2 ripple"
+		><i class="fas fa-globe fa-fw me-3"></i
+	   ><span>Module 7: Data Structures</span></a
+	   >
+   </div>
+ </div>
+</nav>
+</header>
+<body style="background-color:#f3f0e9;">
+    <div class="container mx-auto">
+        <h1 align="center">Module 3: Simple Loops and Nested Loops</h1>
+        <hr>
+        <br>
+<h2>About this lesson...</h2>
+<h5>Topic:</h5> Simple Loops and Nested Loops<br><br>
+<h5>Learning Objectives</h5>
+<ul>
+	<li>Compute the time complexity of code snippets involving simple loops and nested loops with Big O notation</li>
+	<li>Compare code snippets involving loops using Big O notation and evaluate which is more efficient</li>
+	<li>Understand that the loops that students write can affect performance</li>
+</ul>
+These Connect to the National Standards: <br>
+Al/Basic Analysis - Use big O notation formally to give asymptotic upper bounds on time and space complexity of algorithms<br>
+Al/Basic Analysis - Use big O notation formally to give expected case bounds on time complexity of algorithms. <br>
+<h5>How this lesson connects to course objectives:</h5> 
+This lesson teaches students the basics of evaluating the time complexity of loops.
+This is important for students to understand because they will be writing loops in their own code, and they will need to know how to evaluate the efficiency of their code to write more efficient code.
+Loops are also the main mechanisms of creating time complexity in code, which makes this lesson one of the most important of the course.
+
+<h5>Assumed Prior Knowledge</h5>
+Students should be familiar with the following concepts before starting this lesson:
+<ul>
+	<li>Mathematical functions and their growth rates (Covered in Module 1)</li>
+	<li>Big O notation (Covered in Module 2)</li>
+	<li>C++ loop syntax</li>
+	<li>Loops and nested loops</li>
+</ul>
+
+<h5>Difficult / Easy Content</h5>
+<ul>
+	<li>Difficult Content for Students: Students are likely still remembering the Big O notation and Mathematical growth rates, so they will find the evaluation aspects of this lesson hard. They may struggle with determining which terms in the Big O represenation are the lower order terms that they can drop. Students may not be familiar with C++ syntax. Students may have connectivity problems.</li>
+	<li>Easy Content for Students: Students may find nested loops easy since in this lecture I introduce the simple cases in which you only have to multiply nested loops together. Students familiar with C++ will find understanding the coding snippets to be simple and easy to interpret.</li>
+</ul>
+
+<h4>Supplemental Resources</h4>
+<p>
+	Resource that gives a helpful visual to compare growth rates of common Time Complexity functions:<br>
+	<a href="https://www.bigocheatsheet.com/">https://www.bigocheatsheet.com/</a>
+	<br><br>
+
+Resource that give students an alternative introduction to the Time Complexity of loops, but in java:<br>
+<a href="https://www.javatpoint.com/post/time-complexity">https://www.javatpoint.com/post/time-complexity</a>
+<br><br>
+C++ Resource for students unfamiliar with C++: <br>
+<a href="https://www.javatpoint.com/post/time-complexity">https://www.w3schools.com/cpp/</a>
+
+</p>
+		
+<br>
+<h2>Lecture Content</h2>
+<br>
+<p>I highly recommend reading the lecture content using this webpage. There are activities that are interactive in the webpage.</p>
+<p>However, if you prefer the lecture slides version, click below</p>
+<p><a href="Module3Slides.pptx">Download Slides</a></p>
+<br>
+<h3>Simple loops</h3>
+
+<p>At this point in the course, you should be familiar with comparing mathematical functions’ growth rates and the rules of Big-O notation. In this module, we will be applying these concepts to real code snippets. By the end of this lesson, you should be able to compute the time complexity of code snippets involving loops.</p>
+
+<p>We’ll first start with just one loop. Let’s take a look at the following for loop and break it down step by step</p>
+
+<br>
+<code> <pre>
+for (int i = 0; i < n; i++) {
+	std::cout << “Hello World!" << std::endl;
+}
+</pre>
+</code>
+<br>
+
+<p>So, it appears as though the function of this for loop is to print “Hello World" with a newline n times. </p>
+<p>It’s important to recognize first that “std::cout << “Hello World!" << std::endl" is a statement that takes O(1) time, or constant time. This means we don’t have to worry about it when computing the time complexity. Instead, we are concerned with the loop condition. Since the loop runs “n" times, we can compute the time complexity as O(n).</p>
+
+<p>It wont always be that easy, though. Take a look at this next code snippet.</p>
+
+<br>
+<code> <pre>
+for (int i = 1; i < n; i*=2) {
+	Std::cout << “Hello World!" << std::endl;
+}
+</pre>
+</code> 
+<br>
+
+<p>So the loop prints “Hello World!" still, but how many times? Since i is being multiplied by 2 after each iteration, its not executing n times anymore. Let’s break this down by considering the value of i after each iteration.</p>
+
+<br>
+
+<table align="center">
+<tr>
+	<th>Iteration</th>
+	<th>i</th>
+</tr>
+<tr>
+	<td align="center">1st</td>
+<td align="center">2 = > 2<sup>1</sup></td>
+</tr>
+<tr>
+	<td align="center">2nd</td>
+<td align="center">2 = > 2<sup>2</sup></td>
+</tr>
+<tr>
+	<td align="center">3rd</td>
+<td align="center">8 = > 2<sup>3</sup></td>
+</tr>
+<tr>
+	<td align="center">4th</td>
+<td align="center">16 = > 2<sup>4</sup></td>
+</tr>
+<tr>
+	<td align="center">...</td>
+<td align="center">... = > 2<sup>...</sup></td>
+</tr>
+<tr>
+	<td align="center">...</td>
+<td align="center">... = > 2<sup>...</sup></td>
+</tr>
+<tr>
+	<td align="center">nth</td>
+<td align="center">... = > 2<sup>k</sup></td>
+</tr>
+</table>
+<br>
+
+<p>Aha! Based on this table, we can tell that I grows in a pattern of 2<sup>k</sup>. So, we can represent the growth as:</p>
+<p align="center">2<sup>k</sup> = n</p>
+<p>So then, we can solve for k to get:</p>
+<p align="center">log(2<sup>k</sup>) = log(n)</p>
+<p align="center">k = log(n)</p>
+<br>
+<p> Alas, our time complexity is revealed: O(log(n)). Also note that if the loop condition was i/=2, time time complexity would also be O(log(n)), for the same reasons as i*=2</p>
+
+<p>If you are ever stuck computing the time complexity of a loop, try to do the method seen above. Try to recognize a mathematical pattern going on with the value of i for each iteration</p>
+
+<p>Let’s look at another example. Consider the following code snippet:</p>
+<br>
+<code> <pre>
+int i = m;
+while (i > 0) {
+	cout << "What's my time complexity?" << endl;
+	i = i - 1;
+}
+</pre></code>
+<br>
+<p>There are two new things going on in this loop. First of all, it’s a while loop and not a for loop. Second, i is starting at m and going down to 0.</p>
+<p>Though it is in the form of a while loop, you can treat the loop the same as a for loop. Therefore, the loop condition is i>0. Additionally once again think about <i>how many times the loop executes.</i> Starting from m and counting down to zero executes the loop the same amount of times as starting from 0 and counting up to m! This means our time complexity for this code snippet is O(m)!</p>
+<br>
+<p>Let’s look at one more example before an activity</p>
+<br>
+<code> <pre>
+int i = p
+while (i > 1) {
+	cout << “Hi!" << endl;
+	i = i /5
+}
+</pre></code>
+<br>
+<p>Once again, we have a while loop. This time, i is set to p at first and i is divided by 5 after each iteration until it is less than 1. How should we approach this problem?</p>
+<p>As with any loop problem, lets make a table and see if we can find a mathematical pattern</p>
+
+<br>
+
+<table align="center">
+<tr>
+	<th>Iteration</th>
+	<th>i</th>
+</tr>
+<tr>
+	<td align="center">1st</td>
+<td align="center">p/5 = > p * 5<sup>-1</sup></td>
+</tr>
+<tr>
+	<td align="center">2nd</td>
+<td align="center">p/25 = > p * 5<sup>-2</sup></td>
+</tr>
+<tr>
+	<td align="center">3rd</td>
+<td align="center">p/125 = > p * 5<sup>-3</sup></td>
+</tr>
+<tr>
+	<td align="center">4th</td>
+<td align="center">p/625 = > p * 5<sup>-4</sup></td>
+</tr>
+<tr>
+	<td align="center">...</td>
+<td align="center">... = > p * 5<sup>...</sup></td>
+</tr>
+<tr>
+	<td align="center">...</td>
+<td align="center">... = > p * 5<sup>...</sup></td>
+</tr>
+<tr>
+	<td align="center">pth</td>
+<td align="center">p * 5<sup>-k</sup></td>
+</tr>
+</table>
+<br>
+
+<p>Based on this table, we can tell that i grows in a pattern of 5^-k. So, we can represent the growth as:</p>
+<p align="center">5<sup>-k</sup> = p</p>
+<p>So then, we can solve for k to get:</p>
+<p align="center">log(5<sup>-k</sup>) = log(p)</p>
+<p align="center">k = log(p)</p>
+<br>
+<p> The time complexity is therefore: O(log(p)). If you’re wondering where the negative sign went, remember that the properties of Big O state that we can drop constant multipliers, and -1 is a constant multiplier. This is the same reason we do not care that it is technically log base 5.</p>
+<br><br>
+<!--Matching Activity-->
+<!--Source Cited: https://bitbucket.org/james-schneider/drag-and-drop-api-matching-game/src/main/-->
+<div class="container mx-auto" style="background-color: mistyrose;">
+<div class="matching">
+	<h4 align="center">Activity 3.1: Matching Loop Snippets and their Big O representation</h4>
+	<p>Match the following loop snippets with their corresponding time complexity. Assume that inside the loop there are only O(1) statements.</p>
+	<style scoped>
+		.matching .container {
+		max-width: 960px;
+		margin: auto;
+		}
+
+		.matching h1, .matching h3, .matching p {
+		text-align: center;
+		}
+
+		.matching main {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: 5px;
+		}
+
+		.matching .draggable-list {
+		padding: 5px;
+		}
+
+		.matching li {
+		list-style: none;
+		padding: 10px;
+		margin: 5px;
+		background-color: rgb(255, 255, 255);
+		border: 1px solid #000000;
+		color: rgb(232,62,140);;
+		cursor: grab;
+		text-align: center;
+		}
+
+		.matching .over {
+		background-color: #000000;
+		}
+
+
+		.matching table {
+		max-width:640px;
+		margin: auto;
+		margin-bottom: 20px;
+		/* border: 1px solid #b0bec5; */
+		}
+
+		.matching th, .matching td {
+		padding: 10px 10px;
+		}
+
+		.matching td {
+		border: 1px solid #90a4ae;
+		}
+
+		.matching tr:nth-child(even) {
+		background-color: #cfd8dc;
+		}
+
+		.matching button {
+		margin: auto;
+		cursor: pointer;
+		display: block;
+		padding: 10px;
+		font-size: 16px;
+		border-radius: 4px;
+		border: none;
+		background-color: #607d8b;
+		color: #fff;
+		}
+
+		.matching button:hover {
+		background-color: #516a75;
+		}
+
+		.matching #endMessage {
+		display: none;
+		}
+	</style>
+	<main class="container" style="background-color: mistyrose;">
+		<div>
+		  <ul class="draggable-list">
+			<li id="e1" draggable="true">for(int i = 0; i < n; i++)</li>
+			<li id="e2" draggable="true">for(int i = n; i > 1; i = i / 30)</li>
+			<li id="e3" draggable="true">for(int i = m; i > n; i--)</li>
+			<li id="e4" draggable="true">for(int i = 0; i < 437; i += m)</li>
+			<li id="e5" draggable="true">for(int i = 1; i < m; i = i * 2 + 1)</li>
+		  </ul>
+		</div>
+		<div>
+		  <ul class="draggable-list">
+			<li id="s2" draggable="true">O(log(n))</li>
+			<li id="s5" draggable="true">O(log(m))</li>
+			<li id="s1" draggable="true">O(n)</li>
+			<li id="s3" draggable="true">O(m)</li>
+			<li id="s4" draggable="true">O(1)</li>
+		  </ul>
+		</div>
+	  </main>
+	
+	  <div id="endMessage">
+		<h3>Good Job!</h3>
+		<table>
+		  <tr>
+			<th>Loop</th>
+			<th>Time Complexity</th>
+		  </tr>
+		  <tr>
+			<td>for(int i = 0; i < n; i++)</td>
+			<td>O(n)</td>
+		  </tr>
+		  <tr>
+			<td>for(int i = n; i > 1; i = i / 30)</td>
+			<td>O(log(n))</td>
+		  </tr>
+		  <tr>
+			<td>for(int i = m; i > n; i--)</td>
+			<td>O(m)</td>
+		  </tr>
+		  <tr>
+			<td>for(int i = 0; i < 437; i += m)</td>
+			<td>O(1)</td>
+		  </tr>
+		  <tr>
+			<td>for(int i = 1; i < m; i = i * 2 + 1)</td>
+			<td>O(log(m))</td>
+		  </tr>
+		</table>
+	
+		<button onclick="playAgain()">Try Again</button>
+	  </div>
+	
+	  <script src="script.js"></script>
+</div>
+</div>
+
+<br><br><br>
+<h3>Loop Conditions Cheat Sheet</h3>
+<p>The following table is a cheat sheet for you to memorize common loop conditions and their corresponding time complexity</p><br>
+<table align="center">
+<tr>
+	<th>Loop conditions</th>
+	<th>Big O</th>
+</tr>
+<tr>
+	<td align="center"><code>for(int i = 0; i < n; i++)<br>
+for(int i = n; i > 0; i--)<br>
+for(int i = 0; i < n; i=i+c) // where c is a constant<br>
+for(int i = n;  i > 0; i=i-c) // where c is a constant
+</code></td>
+<td align="center">O(n)</td>
+</tr>
+<tr>
+	<td align="center"><code>for(int i = 1; i < n; i*=c) // where c is a constant<br>
+for(int i = n; i < 0; i/=c) // where c is a constant
+</code></td>
+<td align="center">O(log(n))</td>
+</tr>
+<tr>
+	<td align="center"><code>for(int i = 1; i < c; i++) // where c is a constant<br>
+for(int i = c; i > 0; i--) // where c is a constant<br>
+for(int i = 0; i < c; i*=2) // where c is a constant<br>
+for(int i = c; i > 0; i/=2) // where c is a constant<br>
+</code></td>
+<td align="center">O(1)</td>
+</tr>
+</table>
+<br><br><br><br>
+
+<h3>Non-nested multiple loops</h3>
+
+<p>If you are given non-nested loops like this:</p>
+<br>
+<code> <pre>
+for (int i = 0; i < n; i++) {
+	std::cout << “Hello World!" << std::endl;
+}
+for (int i = 0; i < n; i++) {
+	std::cout << “World says Hello!" << std::endl;
+}
+</pre>
+</code>
+<br>
+<p>One rule to remember is to <strong>add non-nested terms</strong>. For example, in the code snippet above the first loop runs O(n), and the second loop also runs O(n). Adding these terms would look like O(n+n) = O(2n). However, this isn’t our final answer. Remember another rule, <strong>drop constant multipliers</strong>, which we have seen before. This means we can drop the 2 and our time complexity becomes O(n).</p>
+
+<p>If you have two loops running in terms of different variables, like so:</p>
+<br>
+<code> <pre>
+for (int i = 0; i < n; i++) {
+	std::cout << “Hello World!" << std::endl;
+}
+for (int i = 0; i < m; i++) {
+	std::cout << “World says Hello!" << std::endl;
+}
+</pre>
+</code>
+<br>
+<p>You would add terms O(n) and O(m) to get O(n + m). Since these are different variables, this is as far as we can simplify it.</p>
+<p>But, let’s say you have loops that look like this:</p>
+<br>
+<code> <pre>
+for (int i = 0; i < n; i++) {
+	std::cout << “Hello World!" << std::endl;
+}
+for (int i = 1; i < n; i*=2) {
+	std::cout << “World says Hello!" << std::endl;
+}
+</pre>
+</code>
+<br>
+<p>The first loop has O(n) complexity. And we know from the last section that the second loop has O(log(n)) complexity. So using the adding rule, we get O(n + log(n)) complexity. But, since we know from the last module about Big O notation, you only keep the term with the fastest growth rate if they are of the same variable. This is another rule to remember: <strong>drop lower order terms</strong> So the final time complexity is O(n). However, if the second loop was in terms of m instead of n, O(n + log(m)) is as far as we could simplify it because they are different variables.</p>
+
+<p>Let’s practice, here’s an activity: </p>
+<br>
+<div class="container mx-auto" style="background-color: mistyrose;">
+<h4 align="center">Activity 3.2: Scaffolded Loop Free Response</h4>
+<p>Analyze the following code snippets and write the correct answer. Remember to add non-nested terms, drop constant multipliers, and drop lower order terms if they are being added.</p>
+<script>
+	function checkQ1() {
+		var answer = document.getElementById("Q1").value;
+		if (answer == "O(m)") {
+			swal("Correct!", "O(m) is correct. The first loop executes m times, and the second loop executes m times. Adding these together results in O(2m), which is O(m)", "success");
+		} else {
+			swal("Try Again", "Think about how many times each loop is iterating. Then, add the two terms together. Finally, drop the constant multiplier.", "warning");
+		}
+	}
+	function checkQ2() {
+		var answer = document.getElementById("Q2").value;
+		if (answer == "O(log(n))") {
+			swal("Correct!", "O(log(n)) is correct. The first loop executes in O(1), and the second loop executes in O(log(n)) times. Adding these together results in O(log(n) + 1), which is O(log(n))", "success");
+		} else {
+			swal("Try Again", "The first loop is in constant time. What do we do with lower order terms?", "warning");
+		}
+	}
+	function checkQ3() {
+		var answer = document.getElementById("Q3").value;
+		if (answer == "O(log(p))") {
+			swal("Correct!", "O(log(p)) is correct. The first loop executes log(p) times, and the second loop executes log(p) times. Adding these together results in O(2 log (p)), which is O(log(p))", "success");
+		} else {
+			swal("Try Again", "Remember the condition i/=2 and i*=2 mean logaritmic growth. Also, remember to drop the constant multiplier.", "warning");
+		}
+	}
+	function checkQ4() {
+		var answer = document.getElementById("Q4").value;
+		if (answer == "O(p)") {
+			swal("Correct!", "O(n) is correct. The first loop executes O(log(p)) times, and the second loop executes O(p) times. Adding these together and dropping the lower order term results in O(p)", "success");
+		} else {
+			swal("Try Again", "After adding, dont forget about the rule to drop lower order terms!", "warning");
+		}
+	}
+	function checkQ5() {
+		var answer = document.getElementById("Q5").value;
+		if (answer == "O(p + log(v))" || answer == "O(log(v) + p)" || answer == "O(p+log(v))" || answer == "O(log(v)+p)" || answer == "O(p + log(v))" || answer == "O(log(v)+ p)" || answer == "O(p +log(v))" || answer == "O(log(v)+ p)" || answer == "O(log(v) +p)") {
+			swal("Correct!", "O(p + log(v)) is correct. The first loop executes log(v) times, and the second loop executes p times. Adding these together results in O(p + log(v)), and you cannot simplify further because the terms are of different variables.", "success");
+		} else {
+			swal("Try Again", "Remember the rule about being unable to drop lower order terms if the terms are of different variables!", "warning");
+		}
+	}
+</script>
+<p><strong>Q1.</strong> What is the time complexity of the following code snippet?</p>
+<code> <pre>
+for(int j = m; j > 0; j--) {
+	//some O(1) statement
+}
+for(int k = 0; k < m; k++ ) {
+	//some O(1) statement
+}
+</pre>
+</code>
+<br>
+<input type="text" id="Q1" name="Q1">&nbsp;&nbsp;&nbsp;<button type="button" onclick="checkQ1()" class="btn btn-outline-success">Submit</button> &nbsp; <button data-toggle="collapse" class="btn btn-outline-warning" data-target="#Q1Hint">Hint</button>
+
+<div id="Q1Hint" class="collapse">
+	<br>
+	<strong>Hint: </strong>Think about how many times each loop is iterating. Then, add the two terms together. Finally, drop the constant multiplier.
+	<br><br>
+	<button data-toggle="collapse" class="btn btn-outline-danger" data-target="#Q1Answer">Answer</button>
+	<div id="Q1Answer" class="collapse">
+		<br>
+	<strong>Answer: </strong>O(m)
+		<br>
+	</div>
+</div>
+<br><br>
+<p><strong>Q2.</strong> What is the time complexity of the following code snippet?</p>
+<code><pre>
+for(int j = 1; j < 100; j*=2) {
+	//some O(1) statement
+}
+for(int k = 1; k < n; n*=2 ) {
+	//some O(1) statement
+}
+</pre>
+</code>
+<br>
+<input type="text" id="Q2" name="Q2">&nbsp;&nbsp;&nbsp;<button type="button" onclick="checkQ2()" class="btn btn-outline-success">Submit</button> &nbsp; <button data-toggle="collapse" class="btn btn-outline-warning" data-target="#Q2Hint">Hint</button>
+
+<div id="Q2Hint" class="collapse">
+	<br>
+<strong>Hint: </strong>Are any of the loops O(1)?
+	<br><br>
+	<button data-toggle="collapse" class="btn btn-outline-danger" data-target="#Q2Answer">Answer</button>
+	<div id="Q2Answer" class="collapse">
+		<br>
+	<strong>Answer: </strong>O(log(n))
+		<br>
+	</div>
+</div>
+<br><br>
+<p><strong>Q3.</strong> What is the time complexity of the following code snippet?</p>
+<code> <pre>
+for(int j = 1; j < p; j*=2) {
+	//some O(1) statement
+}
+for(int k = p; k > 1; k/=2 ) {
+	//some O(1) statement
+}
+</pre>
+</code>
+<br>
+<input type="text" id="Q3" name="Q3">&nbsp;&nbsp;&nbsp;<button type="button" onclick="checkQ3()" class="btn btn-outline-success">Submit</button> &nbsp; <button data-toggle="collapse" class="btn btn-outline-warning" data-target="#Q3Hint">Hint</button>
+
+<div id="Q3Hint" class="collapse">
+	<br>
+<strong>Hint: </strong>Drop constant multipliers!
+	<br><br>
+	<button data-toggle="collapse" class="btn btn-outline-danger" data-target="#Q3Answer">Answer</button>
+	<div id="Q3Answer" class="collapse">
+		<br>
+	<strong>Answer: </strong>O(log(p))
+		<br>
+	</div>
+</div>
+<br><br>
+<p><strong>Q4.</strong> What is the time complexity of the following code snippet?</p>
+<code><pre>
+for(int j = 1; j < p; j*=2) {
+	//some O(1) statement
+}
+for(int k = 1; k < p; k++) {
+	//some O(1) statement
+}
+</pre>
+</code>
+<br>
+<input type="text" id="Q4" name="Q4">&nbsp;&nbsp;&nbsp;<button type="button" onclick="checkQ4()" class="btn btn-outline-success">Submit</button> &nbsp; <button data-toggle="collapse" class="btn btn-outline-warning" data-target="#Q4Hint">Hint</button>
+
+<div id="Q4Hint" class="collapse">
+	<br>
+<strong>Hint: </strong>Drop lower order terms
+	<br><br>
+	<button data-toggle="collapse" class="btn btn-outline-danger" data-target="#Q4Answer">Answer</button>
+	<div id="Q4Answer" class="collapse">
+		<br>
+	<strong>Answer: </strong>O(p)
+		<br>
+	</div>
+</div>
+<br><br>
+<p><strong>Q5.</strong> What is the time complexity of the following code snippet?</p>
+<code><pre>
+for(int j = 1; j < v; j*=2) {
+	//some O(1) statement
+}
+for(int k = 1; k < p; k++) {
+	//some O(1) statement
+}
+</pre>
+</code>
+<br>
+<input type="text" id="Q5" name="Q5">&nbsp;&nbsp;&nbsp;<button type="button" onclick="checkQ5()" class="btn btn-outline-success">Submit</button> &nbsp; <button data-toggle="collapse" class="btn btn-outline-warning" data-target="#Q5Hint">Hint</button>
+
+<div id="Q5Hint" class="collapse">
+	<br>
+<strong>Hint: </strong>You cant drop lower order terms if the terms are of different variables!
+	<br><br>
+	<button data-toggle="collapse" class="btn btn-outline-danger" data-target="#Q5Answer">Answer</button>
+	<div id="Q5Answer" class="collapse">
+		<br>
+	<strong>Answer: </strong>O(p + log(v)) or O(log(v) + p)
+		<br>
+	</div>
+</div>
+<br><br>
+</div>
+<br><br>
+<h3>Nested Loops</h3>
+<p>For nested loops, the rule to remember is <strong>multiply nested terms</strong>. We’ll talk about special cases involving nested loops in the next module, where things can get complicated. But for now, that’s all there is to nested loops. </p>
+<p>Take the following code for example</p>
+<br>
+<code> <pre>
+for(int i = 0; i < n; i++) {
+	for(int j = 0; i < n; j++) {
+		cout << “Nested loops are fun!" << endl;
+	}
+}
+</pre>
+</code>
+
+<br>
+<p>If we examine each loop individually, the outer loop has a time complexity of O(n), and the inner loop has a time complexity O(n). Using our rule to multiply nested terms, we arrive at our final time complexity O(n<sup>2</sup>).</p>
+<p>Let’s look at another example</p>
+<br>
+<code> <pre>
+for(int i = 0; i < n; i++) {
+	for(int j = n; i > 1; j/=2) {
+		cout << “Nested loops are okay…" << endl;
+	}
+}
+</pre>
+</code>
+<br>
+<p>Once again, lets examine each loop individually. The outer loop has a time complexity of O(n), and the inner loop has a time complexity O(log(n)). Using our rule to multiply nested terms, we arrive at our final time complexity O(n*log(n)). You can’t drop lower order terms because they are being multiplied together. They are all one term.</p>
+<br>
+<h3>Play by the rules</h3>
+<p>Remember the following rules when computing the time complexity of loops…</p>
+<ul style="font-size: 18px;">
+<li>Add non-nested terms</li>
+<li>Drop constant multipliers</li>
+<li>Drop lower order terms if they are being added</li>
+<li>Multiply nested terms</li>
+</ul>
+<br><br>
+<h3>Take the Assessment!</h3>
+<p>Now that you’ve learned the basics of time complexity with loops, it’s time to test your knowledge. Take the assessment to see how well you’ve learned the material by clicking the link below. Good luck!</p>
+<p align="center" style="font-size: 18px"><a href="assessment.php"><strong>Assessment</strong></a></p>
+
+    </div>
+</body>
+</html>

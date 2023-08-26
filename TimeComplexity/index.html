@@ -1,0 +1,630 @@
+<!doctype html>
+<html>
+<head>
+	<title>Home Page - The Time Complexity Compendium</title>
+	<link rel="stylesheet" type="text/css" href="../style.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+	<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+	<link rel="manifest" href="favicon/site.webmanifest">
+</head>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+th, td {
+  padding: 8px;
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  padding: 5px 0 0; /* Height of navbar */
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+  width: 200px;
+  z-index: 600;
+}
+
+@media (max-width: 991.98px) {
+  .sidebar {
+    width: 100%;
+  }
+}
+.sidebar .active {
+  border-radius: 5px;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: 0.5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  
+}
+</style>
+<header>
+	<!--Navbar-->
+	<nav
+	id="sidebarMenu"
+	class="collapse d-lg-block sidebar collapse bg-white" 
+	>
+ <div class="position-sticky" >
+   <div class="list-group list-group-flush mx-3 mt-4">
+	<h5>Time Complexity Compendium</h5>
+	 <a
+		href="#toc"
+		class="list-group-item list-group-item-action py-2 ripple"
+		aria-current="true" 
+		>
+	   <i class="fas fa-tachometer-alt fa-fw me-3"></i
+		 ><span>Modules</span>
+	 </a>
+	 <a
+		href="#atc"
+		class="list-group-item list-group-item-action py-2 ripple"
+		>
+	   <i class="fas fa-chart-area fa-fw me-3"></i
+		 ><span>About The Course</span>
+	 </a>
+	 <a
+		href="#outline"
+		class="list-group-item list-group-item-action py-2 ripple"
+		><i class="fas fa-lock fa-fw me-3"></i><span>Outline</span></a
+	   >
+	 <a
+		href="#kc"
+		class="list-group-item list-group-item-action py-2 ripple"
+		><i class="fas fa-chart-line fa-fw me-3"></i
+	   ><span>Key Content</span></a
+	   >
+	 <a
+		href="#lo"
+		class="list-group-item list-group-item-action py-2 ripple"
+		>
+	   <i class="fas fa-chart-pie fa-fw me-3"></i><span>Learning Objectives</span>
+	 </a>
+	 <a
+		href="#soc"
+		class="list-group-item list-group-item-action py-2 ripple"
+		><i class="fas fa-chart-bar fa-fw me-3"></i><span>Structure of Course</span></a
+	   >
+	 <a
+		href="#cr"
+		class="list-group-item list-group-item-action py-2 ripple"
+		><i class="fas fa-globe fa-fw me-3"></i
+	   ><span>Course Resources</span></a
+	   >
+	 <a
+		href="#ss"
+		class="list-group-item list-group-item-action py-2 ripple"
+		><i class="fas fa-building fa-fw me-3"></i
+	   ><span>Session Structure</span></a
+	   >
+	 <a
+		href="#cs"
+		class="list-group-item list-group-item-action py-2 ripple"
+		><i class="fas fa-calendar fa-fw me-3"></i
+	   ><span>Course Schedule</span></a
+	   >
+	   <a
+	   href="#as"
+	   class="list-group-item list-group-item-action py-2 ripple"
+	   ><i class="fas fa-calendar fa-fw me-3"></i
+	  ><span>Assessments</span></a
+	  >
+   </div>
+ </div>
+</nav>
+</header>
+<body style="background-color:#f3f0e9;">
+	<div class="container">
+		<br>
+		<!--Title-->
+		<h1 align="center">The Time Complexity Compendium</h1>
+		<br>
+		<hr>
+		<!--Table of Contents-->
+		<h2 id="toc" align="center">Modules</h2>
+		<br>
+		<table align="center">
+			<tr>
+				<th>Module</th>
+				<th>Topic</th>
+			</tr>
+			<tr>
+				<td align="center">1</td>
+				<td><a href="modules/module1/">Functions and Growth Rates</a></td>
+			</tr>
+			<tr>
+				<td align="center">2</td>
+				<td><a href="modules/module2/">Big O Notation Introduction</a></td>
+			</tr>
+			<tr>
+				<td align="center">3</td>
+				<td><a href="modules/module3/">Simple Loops and Nested Loops</a></td>
+			</tr>
+			<tr>
+				<td align="center">4</td>
+				<td><a href="modules/module4/">Loops Special Cases</a></td>
+			</tr>
+			<tr>
+				<td align="center">5</td>
+				<td><a href="modules/module5/">Recursion</a></td>
+			</tr>
+			<tr>
+				<td align="center">6</td>
+				<td><a href="modules/module6/">Recursion Special Cases</a></td>
+			</tr>
+			<tr>
+				<td align="center">7</td>
+				<td><a href="modules/module7/">Data Structures</a></td>
+			</tr>
+		</table>
+		<br>
+		<p align="center"><strong>Click a Module To Begin Learning!</strong></p>
+		<hr>
+		<!--About the Course-->
+		<h2 id="atc" align="center">About the Course</h2>
+		<br>
+		<div class="row">
+			<div class="col-sm-1">
+			</div>
+			<div class="col-sm-10">
+			<p>The Time Complexity Compendium is aimed at late-high school or early undergraduate Computer Science students who already have some 
+				programming experience (such as Programming Fundamentals 1 or similar). The course is designed to
+				give students an introduction to Time Complexity and and Big O Notation.
+				Most importantly, the course teaches students how to analyze the time complexity of algorithms under various circumstances, such as loops, recursion, and data structures.
+			</p>
+			</div>
+			<div class="col-sm-1">
+			</div>
+		</div>
+		<!--Outline-->
+		<h3 id="outline" align="center">Outline</h3>
+		<br>
+		<!--Key Content-->
+		<h4 id="kc" align="center">Key Content</h3>
+		<br>
+			<div class="row">
+				<div class="col-sm-1">
+				</div>
+				<div class="col-sm-10">
+				<p>This mini-course will start by covering the mathematical functions and the growth rates that underlie time complexity in software engineering before moving on to covering the fundamentals of Big-O notation.
+					 Students will then learn to evaluate code snippets involving loops, recursion, data structures, and special cases using Big-O notation for future applications in their careers.
+				</p>
+				</div>
+				<div class="col-sm-1">
+				</div>
+			</div>
+		<br>
+		<!--Learning Objectives-->
+		<h4 id="lo" align="center">Learning Objectives</h3>
+			<br>
+			<div class="row">
+				<div class="col-sm-1">
+				</div>
+				<div class="col-sm-10">
+				<ul>
+					<li>Understand the mathematical functions and growth rates that underlie time complexity in software engineering.</li>
+					<li>Understand and apply the fundamentals of Big-O notation.</li>
+					<li>Analyze code snippets involving loops, recursion, data structures, and special cases using Big-O notation.</li>
+					<li>Compare and evaluate time complexity of different code snippets to determine which is more efficient.</li>
+				</ul>
+				</div>
+				<div class="col-sm-1">
+				</div>	
+			</div>
+			<p align="center">For more information about how these objectives align with national standards, see the "Course Schedule" section.</p>
+		<br>
+		<!--Structure of Course-->
+		<h4 id="soc" align="center">Structure of Course</h3>
+			<br>
+			<div class="row">
+				<div class="col-sm-1">
+				</div>
+				<div class="col-sm-10">
+				<p>
+					The mini-course is a <strong>Self-paced</strong> course. This means that students can complete the modules at their own pace according to their understanding of each topic. Since modules build on each previous topic, it is highly recommended that students take and pass the summative evaluation assessment at the end of each module before moving on to the next, even though all modules are unlocked from the start. Because this course is online, students can always reference and review previous modules if they fail to understand a certain topic.
+				</p>
+				<p>
+					We recommend students spend approximately 1 hour per day on this course for approximately 2 school weeks, doing about 1 module per day. However, students can complete the course at their own pace.
+				</p>
+				<p>
+					There are 7 modules, each intended to take approximately 45 minutes, including the summative evaluation assessment. The modules will be a mix of instructional content via paragraphs, diagrams, visuals, and code examples. Interspersed between the instructional content will be mini-activities that check the student’s understanding of the content that came before it. These activities give students the opportunity to think critically about content and reinforce learning by allowing them to apply what they have learned. At the end of each module, there will be a summative evaluation assessment consisting of questions related to the module. 
+					
+				</p>
+				</div>
+				<div class="col-sm-1">
+				</div>
+			</div>
+		<br>
+		<!--Course Resources-->
+		<h4 id="cr" align="center">Course Resources</h3>
+		<br>
+		<div class="row">
+			<div class="col-sm-1">
+			</div>
+			<div class="col-sm-10">
+			<p>
+				The course and all of its modules are available online, completely free, at the website <a href="https://www.cise.ufl.edu/~dpayne1/TimeComplexity/">cise.ufl.edu/~dpayne1/TimeComplexity/</a>
+			</p>
+			<p>
+				You will not need to download extra software for this course, nor do you need to create an account to start learning. All you need is an internet connection and a browser.
+			</p>
+			<p>
+				You can access the course on any device that has a web browser, including desktops, laptops, tablets, and smartphones. The course is designed to be responsive, meaning that it will automatically adjust to the size of your screen. This means that you can take the course on any device, no matter the size of the screen.
+			</p>
+			<p>
+				It is recommended that students are familiar with the C++ programming language, as the code snippets in this course will be written in C++. The course will not delve deep into C++ syntax, but students should know the syntax for variable declarations, for loops, while loops, and recursive functions for this course. For students unfamiliar with C++, the website <a href="https://www.w3schools.com/cpp/">w3schools.com/cpp/</a> would be a good place to start learning this syntax.
+			</p>
+			</div>
+			<div class="col-sm-1">
+			</div>
+		</div>
+		<br>
+		<!--Session Structure-->
+		<h4 id="ss" align="center">Session Structure</h3>
+			<br>
+			<div class="row">
+				<div class="col-sm-1">
+				</div>
+				<div class="col-sm-10">
+				<p>
+					There are 7 modules, each intended to take approximately 45 minutes, including the summative evaluation assessment. The modules will be a mix of instructional content via paragraphs, diagrams, visuals, and code examples. Interspersed between the instructional content will be mini-activities that check the student’s understanding of the content that came before it. These activities give students the opportunity to think critically about content and reinforce learning by allowing them to apply what they have learned. 
+				</p>
+				<p>	
+					Modules in this course will be delivered via instructional content containing paragraphs, diagrams, visuals, and code examples. Mini-activities mixed with the instructional content will check the student’s understanding of the content that came before it.
+				</p>
+				<p>
+					In every module, there is an activity or multiple activities that students can complete to further reinforce their understanding of the content. Students are encouraged to complete them to further their learning.
+				</p>
+				<p>
+					At the end of each module, there will be a self-evaluation assessment consisting of questions related to the module. The summative evaluation assessment will be a mix of multiple choice, true/false, and short answer questions. The summative evaluation assessment will be graded automatically, and students will be able to see their score immediately after submitting the assessment with feedback. Students will be able to retake the summative evaluation assessment as many times as they want, and the highest score will be recorded.
+				</p>
+				</div>
+				<div class="col-sm-1">
+				</div>
+			</div>
+		<br>
+		<!--Course Schedule-->
+		<h4 id="cs" align="center">Course Schedule</h3>
+		<br>
+		<table aling="center">
+			<tr>
+				<th>Module</th>
+				<th>Topic</th>
+				<th>Learning Objectives</th>
+				<th>Instructional Activity</th>
+				<th>Student Learning Activity</th>
+				<th>Potential Learning Challenges</th>
+				<th>Standards Alignment</th>
+			</tr>
+			<tr>
+				<!--Module-->
+				<td align="center">1</td>
+				<!--Topic-->
+				<td>Functions and Growth Rates</td>
+				<!--Learning Objectives-->
+				<td>
+					After this module students should be able to:
+					<ul>
+						<li>Identify the mathematical functions that underlie time complexity in software engineering</li>
+						<li>Identify the growth rates that underlie time complexity</li>
+						<li>Understand and be able to evaluate which functions are more efficient based on growth rate</li>
+						<li>Model growth rates seen in common programs through graphs</li>
+					</ul>
+				</td>
+				<!--Instructional Activity-->
+				<td>
+					Web lesson consisting of roughly 45 Minutes of Instructional Content delivered via text, graphs, and comprehension questions.
+				</td>
+				<!--Student Learning Activity-->
+				<td>
+					Activity based on graphing growth rates of common functions and comparing them to each other.
+				</td>
+				<!--Potential Learning Challenges-->
+				<td>
+					<ul>
+						<li>Students may not be familiar with the mathematical functions discussed</li>
+						<li>Students may struggle remembering the order of growth rates of the mathematical functions</li>
+					</ul>
+				</td>
+				<!--Standards Alignment-->
+				<td>
+					CS2013: <br>
+					Al/Basic Analysis - Asymptotic analysis of upper and expected complexity bounds <br>
+					Al/Basic Analysis - Complexity classes, such as constant, logarithmic, linear, quadratic, and exponential <br>
+					<br>
+					K-12 Framework: <br>
+					S2. Develop and use models
+					M4. Model with mathematics
+				</td>
+			</tr>
+			<tr>
+				<!--Module-->
+				<td align="center">2</td>
+				<td>Big O Notation Introduction</td>
+				<!--Learning Objectives-->
+				<td>
+					After this module students should be able to:
+					<ul>
+						<li>Understand Big O notation and explain why it is the standard for evaluating algorithms</li>
+						<li>Recognize the difference between Big O, Big Theta, and Big Omega notation</li>
+						<li>Be able to simplify functions so they conform with Big O notation standards</li>
+						<li>Understand the mathematical backing behind Big O notation</li>
+					</ul>
+				</td>
+				<!--Instructional Activity-->
+				<td>
+					Web lesson consisting of roughly 30 Minutes of Instructional Content delivered via text, graphs, and comprehension questions.
+				</td>
+				<!--Student Learning Activity-->
+				<td>
+					Activity based on simplifying functions to conform with Big O notation standards and determining the Big O notation of a given function.
+				</td>
+				<!--Potential Learning Challenges-->
+				<td>
+					<ul>
+						<li>Students may forget the rules of Big O notation</li>
+						<li>Students may find the Big O notation confusing having never seen it before</li>
+					</ul>
+				</td>
+				<!--Standards Alignment-->
+				<td>
+					CS2013: <br>
+					Al/Basic Analysis - State the formal definition of big O <br>
+					Al/Basic Analysis - Explain the use of big omega, big theta, and little o notation to describe the amount of work done by an algorithm. <br>
+					Al/Basic Analysis - Use big O notation formally to give asymptotic upper bounds on time and space complexity of algorithms. <br>
+				</td>
+			</tr>
+			<tr>
+				<!--Module-->
+				<td align="center">3</td>
+				<!--Topic-->
+				<td>Simple Loops and Nested Loops</td>
+				<!--Learning Objectives-->
+				<td>
+					After this module students should be able to:
+					<ul>
+						<li>Compute the time complexity of code snippets involving simple loops and nested loops with Big O notation</li>
+						<li>Compare code snippets involving loops using Big O notation and evaluate which is more efficient</li>
+						<li>Understand that the loops that students write can affect performance</li>
+					</ul>
+				</td>
+				<!--Instructional Activity-->
+				<td>
+					Web lesson consisting of roughly 40 Minutes of Instructional Content delivered via text, graphs, code snippets, and comprehension questions.
+				</td>
+				<!--Student Learning Activity-->
+				<td>
+					Matching Activity involving matching code snippets with their Big O notation.<br>
+					<br>
+					Activity involving evaluating the time complexity of code snippets involving non-nested loops and dropping lower order terms or constant multipliers. <br>
+					<br>
+					Summative assessment involving evaluating the time complexity of code snippets involving loops and comparing code snippets with each other. 
+				</td>
+				<!--Potential Learning Challenges-->
+				<td>
+					<ul>
+						<li>Students may not be familiar C++ loop syntax</li>
+						<li>Students may struggle coming up with the correct Big O representation</li>
+					</ul>
+				</td>
+				<!--Standards Alignment-->
+				<td>
+					CS2013: <br>
+					Al/Basic Analysis - Use big O notation formally to give asymptotic upper bounds on time and space complexity of algorithms<br>
+					Al/Basic Analysis - Use big O notation formally to give expected case bounds on time complexity of algorithms. <br>
+					Al/Basic Analysis - Perform empirical studies to validate hypotheses about runtime stemming from mathematical analysis. Run algorithms on input of various sizes and compare performance. <br>
+				</td>
+			</tr>
+			<tr>
+				<!--Module-->
+				<td align="center">4</td>
+				<!--Topic-->
+				<td>Loops Special Cases</td>
+				<!--Learning Objectives-->
+				<td>
+					After this module students should be able to:
+					<ul>
+						<li>Compute the time complexity of code snippets involving loops with special cases with Big O notation</li>
+						<li>Understand the mathematical series that explain the loops' special cases</li>
+						<li>Compare code snippets involving loops with special cases using Big O notation and evaluate which is more efficient</li>
+					</ul>
+				</td>
+				<!--Instructional Activity-->
+				<td>
+					Web lesson consisting of roughly 30 Minutes of Instructional Content delivered via text, graphs, code snippets and comprehension questions.
+				</td>
+				<!--Student Learning Activity-->
+				<td>
+					Summative assessment involving evaluating the time complexity of code snippets involving loops, and comparing code snippets with eachother.
+				<!--Potential Learning Challenges-->
+				<td>
+					<ul>
+						<li>Difficulty in understanding mathematical series</li>
+						<li>Difficulty in recognizing when a loop special case is present</li>
+					</ul>
+				</td>
+				<!--Standards Alignment-->
+				<td>
+					CS2013: <br>
+					Al/Basic Analysis - Use big O notation formally to give asymptotic upper bounds on time and space complexity of algorithms<br>
+					Al/Basic Analysis - Use big O notation formally to give expected case bounds on time complexity of algorithms. <br>
+					Al/Basic Analysis - Perform empirical studies to validate hypotheses about runtime stemming from mathematical analysis. Run algorithms on input of various sizes and compare performance. <br>
+					<br>
+					K-12 Framework: <br>
+					M4. Model with mathematics
+				</td>
+			</tr>
+			<tr>
+				<!--Module-->
+				<td align="center">5</td>
+				<!--Topic-->
+				<td>Recursion</td>
+				<!--Learning Objectives-->
+				<td>
+					After this module students should be able to:
+					<ul>
+						<li>Compute the time complexity of code snippets involving recursion with Big O notation</li>
+						<li>Compare code snippets involving recursion using Big O notation and evaluate which is more efficient</li>
+					</ul>
+				</td>
+				<!--Instructional Activity-->
+				<td>
+					Web lesson consisting of roughly 40 Minutes of Instructional Content delivered via text, graphs, code snippets and comprehension questions.
+				</td>
+				<!--Student Learning Activity-->
+				<td>
+					Summative assessment involving evaluating the time complexity of code snippets involving recursion, and comparing code snippets with eachother.
+				</td>
+				<!--Potential Learning Challenges-->
+				<td>
+					<ul>
+						<li>Students may not have strong programming skills with recursion</li>
+						<li>Students may struggle with recursion and visualizing the code</li>
+					</ul>
+				</td>
+				<!--Standards Alignment-->
+				<td>
+					CS2013: <br>
+					Al/Basic Analysis - Use recurrence relations to determine the time complexity of recursively defined algorithms.<br>
+					Al/Basic Analysis - Use big O notation formally to give asymptotic upper bounds on time and space complexity of algorithms<br>
+					Al/Basic Analysis - Use big O notation formally to give expected case bounds on time complexity of algorithms. <br>
+					Al/Basic Analysis - Perform empirical studies to validate hypotheses about runtime stemming from mathematical analysis. Run algorithms on input of various sizes and compare performance. <br>
+				</td>
+			</tr>
+			<tr>
+				<!--Module-->
+				<td align="center">6</td>
+				<!--Topic-->
+				<td>Recursion Special Cases</td>
+				<!--Learning Objectives-->
+				<td>
+					After this module students should be able to:
+					<ul>
+						<li>Compute the time complexity of code snippets involving recursion with special cases with Big O notation</li>
+						<li>Understand the mathematical series that explain the recursion's special cases</li>
+						<li>Compare code snippets involving recursion with special cases using Big O notation and evaluate which is more efficient</li>
+					</ul>
+				</td>
+				<!--Instructional Activity-->
+				<td>
+					Web lesson consisting of roughly 30 Minutes of Instructional Content delivered via text, graphs, code snippets and comprehension questions.
+				</td>
+				<!--Student Learning Activity-->
+				<td>
+					Summative assessment involving evaluating the time complexity of code snippets involving recursion with special cases, and comparing code snippets with eachother.
+				</td>
+				<!--Potential Learning Challenges-->
+				<td>
+					<ul>
+						<li>Difficulty in understanding mathematical series</li>
+						<li>Difficulty in recognizing when a recursion special case is present</li>
+					</ul>
+				</td>
+				<!--Standards Alignment-->
+				<td>
+					CS2013: <br>
+					Al/Basic Analysis - Use recurrence relations to determine the time complexity of recursively defined algorithms.<br>
+					Al/Basic Analysis - Use big O notation formally to give asymptotic upper bounds on time and space complexity of algorithms<br>
+					Al/Basic Analysis - Use big O notation formally to give expected case bounds on time complexity of algorithms. <br>
+					Al/Basic Analysis - Perform empirical studies to validate hypotheses about runtime stemming from mathematical analysis. Run algorithms on input of various sizes and compare performance. <br>
+					<br>
+					K-12 Framework: <br>
+					M4. Model with mathematics
+				</td>
+			</tr>
+			<tr>
+				<!--Module-->
+				<td align="center">7</td>
+				<!--Topic-->
+				<td>Data Structures</td>
+				<!--Learning Objectives-->
+				<td>
+					After this module students should be able to:
+					<ul>
+						<li>Understand the different data structures and their time complexities</li>
+						<ul>
+							<li>Arrays</li>
+							<li>Stacks</li>
+							<li>Queues</li>
+							<li>Linked Lists</li>
+							<li>Trees & Binary Search Trees</li>
+							<li>Hash Tables</li>
+						</ul>
+						<li>Understand the different data structures and their tradeoffs</li>
+					</ul>
+				</td>
+				<!--Instructional Activity-->
+				<td>
+					Web lesson consisting of roughly 30 Minutes of Instructional Content delivered via text, graphs, code snippets and comprehension questions.
+				</td>
+				<!--Student Learning Activity-->
+				<td>
+					Activity involving mixing and matching data structures to with their time complexities, as well as evaluating which data structure is best for a given scenario.
+				</td>
+				<!--Potential Learning Challenges-->
+				<td>
+					<ul>
+						<li>Students may not experience with some of these data structures</li>
+						<li>High cognitive load learning all data structure complexities at once</li>
+					</ul>
+				</td>
+				<!--Standards Alignment-->
+				<td>
+					CS2013: <br>
+					Al/Basic Analysis - Demonstrate the ability to evaluate algorithms, to select from a range of possible options, to provide justification for that selection, and to implement the algorithm in a particular context.
+					<br>
+					K-12:
+					<br>
+					Data structures are used to manage program complexity. Programmers choose data structures based on functionality, storage, and performance tradeoffs.
+				</td>
+			</tr>
+		</table>
+		<br><br>
+		<!--Assessments-->
+		<h4 id="as" align="center">Grading & Assessments</h4>
+		<br>
+		<p>There are 7 summative evaluation assessments consisting of multiple choice, true/false, select all that apply, and short answer questions at the end of each module. These are weighted at 60% of a student's final grade and are individual assessments. The remaining 40% are activities that are also completed individually. In every module, there is an activity or multiple activities that students can complete to further reinforce their understanding of the content.</p>
+		<br>
+		<!--Assessments table-->
+		<table align="center">
+			<tr>
+				<th>Weighting</th>
+				<th>Category</th>
+				<th>Assessment Level</th>
+				<th>Description</th>
+			</tr>
+			<tr>
+				<td align="center">50%</td>
+				<td>Summative Evaluation Assessments</td>
+				<td>Individual</td>
+				<td>7 Evaluation Assessments consisting of multiple choice, true/false, select all that apply, and short answer questions at the end of each module.</td>
+			</tr>
+			<tr>
+				<td align="center">40%</td>
+				<td>Activities</td>
+				<td>Individual</td>
+				<td>In every module, there is an activity or multiple activities that students can complete to further reinforce their understanding of the content.</td>
+			</tr>
+		</table>
+		<br>
+
+
+</body>
+<hr>
+<footer align="center" style="color:black;">
+	&copy; <time datetime="2023">2023 David Payne</time>
+</footer>
+<br>
+</html>
